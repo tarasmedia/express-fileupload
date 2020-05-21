@@ -1,0 +1,43 @@
+<!-- форма -->
+<div class="row mt-5">
+  <div class="col-12">
+    <h5>C фетчем</h5>
+    <form>
+      <div class="form-group">
+        <label for="uploadInput">Загрузка файлов</label>
+        <input type="file" class="form-control-file" id="uploadInput">
+      </div>
+    </form>
+    <button type="button" class="btn btn-outline-info" id="uploadButton">Загрузить!</button>
+  </div>
+</div>
+<!-- /форма -->
+
+<!-- форма Без фетча -->
+<div class="row mt-5">
+  <div class="col-12">
+    <h5>Без фетча</h5>
+    <form ref='uploadForm' 
+      id='uploadForm' 
+      action='/upload' 
+      method='post' 
+      encType="multipart/form-data">
+        <input type="file" name="file" id="uploadInput2"/>
+        <input type='submit' value='Загрузить!' class="btn btn-outline-warning"/>
+    </form> 
+  </div>
+</div>
+<!-- /форма Без фетча -->
+
+<!-- форма с дропзоной -->
+<div class="row mt-5">
+  <div class="col-12">
+    <h5>Дропзона</h5>
+    <form action="/upload" class="dropzone" id="testDropzone">
+      <div class="fallback">
+        <input name="file" type="file" multiple />
+      </div>
+    </form>
+  </div>
+</div>
+<!-- /форма с дропзоной-->
