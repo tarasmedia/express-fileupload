@@ -20,7 +20,14 @@ uploadButton.addEventListener('click', async (event) => {
   };
 
   try {
-    await fetch('/upload', fetchOptions);
+    const post = await fetch('/upload', fetchOptions);
+    const postResult = await post.json();
+    iziToast.show({
+      title: 'Готово!',
+      message: postResult,
+      position: 'topRight',
+      color: 'green',
+  });
   } catch (error) {
     console.log(error);
   }
