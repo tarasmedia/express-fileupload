@@ -3,7 +3,7 @@ const express = require('express');
 // const fetch = require('node-fetch');
 // const hbs = require('hbs');
 const fileUpload = require('express-fileupload');
-
+const YandexDisk = require('./extensions/yandexDisk');
 const app = express();
 
 // hbs.registerPartials(`${__dirname}/views/partials`, (err) => { if (err) console.error(err); });
@@ -17,6 +17,7 @@ app.use(express.static(`${process.env.PWD}/public`));
 app.use(fileUpload());
 
 const uploadsDir = process.env.FILE_DIRECTORY || `${process.env.PWD}/public/uploads`;
+const uploadsDirYandex = process.env.FILE_DIRECTORY_ON_YANDEX_DISK || '/TEEEEEEST/express-fileupload';
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -32,6 +33,9 @@ app.post('/upload', (req, res) => {
 
   sampleFile.mv(`${uploadsDir}/${filename}`, (err) => {
     if (err) return res.status(500).send(err);
+    if (req.body.yandex === 'on') {
+      YandexDisk.uploadFile(`${uploadsDirYandex}/${filename}`, `${uploadsDir}/${filename}`);
+    }
     res.json('Файл загружен!');
   });
 });

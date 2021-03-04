@@ -12,23 +12,25 @@
   </div>
 </div>
 <!-- /форма -->
-
+<hr>
 <!-- форма Без фетча -->
 <div class="row mt-5">
   <div class="col-12">
     <h5>Без фетча</h5>
-    <form ref='uploadForm' 
-      id='uploadForm' 
-      action='/upload' 
-      method='post' 
-      encType="multipart/form-data">
-        <input type="file" name="file" id="uploadInput2"/>
-        <input type='submit' value='Загрузить!' class="btn btn-outline-warning"/>
-    </form> 
+    <form ref='uploadForm' id='uploadForm' action='/upload' method='POST' encType="multipart/form-data">
+      <div class="form-group">
+        <input type="file" name="file" id="uploadInput2" />
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="yandex" id="yandex">
+        <label class="form-check-label" for="defaultCheck1">Загрузить на Яндекс.Диск</label>
+      </div>
+        <input type='submit' value='Загрузить!' class="btn btn-outline-warning mt-2" />
+    </form>
   </div>
 </div>
 <!-- /форма Без фетча -->
-
+<hr>
 <!-- форма с дропзоной -->
 <div class="row mt-5">
   <div class="col-12">

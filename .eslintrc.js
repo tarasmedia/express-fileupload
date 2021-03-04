@@ -18,6 +18,6 @@ module.exports = {
     'import/newline-after-import': 'off',
     'no-plusplus': 'off',
     'object-curly-newline': 'off',
-    'quote-props': 'warn',
+    'quote-props': 'off',
   },
 };
